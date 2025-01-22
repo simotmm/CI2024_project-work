@@ -12,6 +12,7 @@ from population import generate_initial_population, parent_selection
 PLOT = False
 PRINT_STRUCTURE = False
 RESET_POPULATION = False 
+TOURNAMENT_SELECTION = False
 
 
 def genetic_programming_algorithm(problem: Problem) -> Node:
@@ -77,6 +78,7 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
                 no_improving_gens = 0
 
             #offspring
+            #offspring = generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals, x, y)
             offspring = generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals)
             population = elite + offspring
 
@@ -92,14 +94,19 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
     return best_individual, fitness_values
 
 
-def generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals):
+def generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals, x=None, y=None):
     offspring = []
     while len(offspring) < offspring_size:
         if random.random() <= mutation_prob:
-            parents = random.sample(population, 2)  # Seleziona due genitori casualmente
+            if TOURNAMENT_SELECTION and x and y:
+                p1 = parent_selection(population, x, y)
+                p2 = parent_selection(population, x, y)
+                parents = [p1, p2]
+            else:
+                parents = random.sample(population, 2)
             child = crossover(parents[0], parents[1], max_depth)
         else:
-            parent = random.choice(population)  # Seleziona un genitore casualmente
+            parent = random.choice(population)
             child = mutation(parent, max_depth, terminals)
         offspring.append(child)
     
