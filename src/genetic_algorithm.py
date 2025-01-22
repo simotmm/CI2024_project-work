@@ -11,10 +11,11 @@ from population import generate_initial_population, parent_selection
 
 PLOT = False
 PRINT_STRUCTURE = False
+RESET_POPULATION = False 
 
 
 def genetic_programming_algorithm(problem: Problem) -> Node:
-    # Dati e setting
+    #dati problema e setting
     settings: Settings = problem.settings
     x = problem.x
     y = problem.y
@@ -24,6 +25,9 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
     max_depth = settings.max_depth
     mutation_prob = settings.mutation_prob
     elitism = settings.elitism
+    if RESET_POPULATION:
+        max_no_improving_gens = int(num_generations/10)
+        no_improving_gens = 0
 
     # Inizio
     start_time = time.time()
@@ -35,40 +39,48 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
 
     print(problem)
     print(settings)
-    # Popolazione iniziale
+    #popolazione iniziale
     print(f"creation of the inititial population...")
     population = generate_initial_population(population_size, terminals, max_depth)
 
-    # Barra di avanzamento con tqdm
+    #barra di avanzamento con tqdm
     with tqdm(total=num_generations, desc="genetic_algorithm", unit="gen") as pbar:
         for generation in range(num_generations):
-            # Calcola i valori di fitness
+
+
+            #calcolo fitness 
             this_gen_fitness_values = get_fitness_values(population, x, y)
             i = np.argmax(this_gen_fitness_values)
             current_best = population[i]
             current_best_fitness = this_gen_fitness_values[i]
             fitness_values.append(current_best_fitness)
 
-            # Aggiorna la barra con fitness e profondità
+            #update values tqdm bar
             pbar.set_postfix({
                 "best Fitness": f"{current_best_fitness}",
                 "depth": current_best.depth()
             })
 
+            #aggiornamento del migliore
             if current_best_fitness > best_fitness:
                 best_fitness = current_best_fitness
                 best_individual = current_best
+            elif RESET_POPULATION:
+                no_improving_gens += 0
 
-            # Ordina la popolazione per fitness e seleziona l'élite
+            #elitismo: rimangono i migliori elitism_size individui
             sorted_population = sort_population_by_fitness(population, this_gen_fitness_values)
             elite = sorted_population[:elitism_size]
 
-            # Genera la prole
+            if RESET_POPULATION and no_improving_gens > max_no_improving_gens: #modalità che dovrebbe introdurre più diversità
+                population = generate_initial_population(population_size, terminals, max_depth)
+                no_improving_gens = 0
+
+            #offspring
             offspring = generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals)
             population = elite + offspring
 
-            # Incrementa la barra di avanzamento
-            pbar.update(1)
+            pbar.update(1) #bar update
 
     if PLOT: plot_values(f"problem {problem.id}: fitness", fitness_values)
     end_time = time.time() - start_time
