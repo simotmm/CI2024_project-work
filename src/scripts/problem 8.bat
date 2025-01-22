@@ -1,3 +1,3 @@
 @echo off
 cd ..
-start "problem 1" python main.py 8
+start "problem 8" python main.py 8

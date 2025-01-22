@@ -7,7 +7,7 @@ np.random.seed(int(time.time()))
 
 
 SETTINGS_LIST = [
-    #PROBLEM 0 SETTINGS: not used, default values (DO NOT REMOVE: necessary for )
+    #PROBLEM 0 SETTINGS: not used, default values (DO NOT REMOVE: necessary for the indexes correspondence)
     Settings(id=0),
 
     #PROBLEM 1 SETTINGS: default values
@@ -16,20 +16,20 @@ SETTINGS_LIST = [
     #PROBLEM 2 SETTINGS
     Settings(
         id=2,
-        population_dim=70_000,
-        max_generations=50,
-        max_depth=6,
-        mutation_prob=0.6,
+        population_dim=100_000,
+        max_generations=150,
+        max_depth=8,
+        mutation_prob=0.55,
         elitism=0.2
     ),
 
     #PROBLEM 3 SETTINGS
     Settings(
         id=3,
-        population_dim=1000,
-        max_generations=2000,
+        population_dim=100_000,
+        max_generations=200,
         max_depth=6,
-        mutation_prob=0.6,
+        mutation_prob=0.5,
         elitism=0.2
     ),
 
@@ -66,8 +66,8 @@ SETTINGS_LIST = [
     #PROBLEM 7 SETTINGS
     Settings(
         id=7,
-        population_dim=10_000,
-        max_generations=1000,
+        population_dim=100_000,
+        max_generations=100,
         max_depth=7,
         mutation_prob=0.6,
         elitism=0.2
@@ -76,10 +76,10 @@ SETTINGS_LIST = [
     #PROBLEM 8 SETTINGS
     Settings(
         id=8,
-        population_dim=70_000,
-        max_generations=60,
-        max_depth=8,
-        mutation_prob=0.6,
+        population_dim=50_000,
+        max_generations=100,
+        max_depth=9,
+        mutation_prob=0.65,
         elitism=0.2
     )
 ]

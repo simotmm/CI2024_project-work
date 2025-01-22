@@ -24,7 +24,7 @@ def test_formulas():
         problem = get_problem(PROBLEM_ID)
         test_formula(f, problem)
     else:
-        f_list = [f1, f2, f3, f4, f5, f6, f7, f6, f8]
+        f_list = [f1, f2, f3, f4, f5, f6, f7, f8]
         id = 1
         for function in f_list:
             problem = get_problem(id)
@@ -35,6 +35,6 @@ def test_formula(f, problem):
     x = problem.x
     y = problem.y
     mse = calculate_mse(f(x), y)
-    print(f"problem {problem.id}, mse: {mse}")
+    print(f"problem {problem.id}: mse = {mse}")
 
 test_formulas()
