@@ -71,3 +71,21 @@ def set_problems_settings(problems, setting_list):
 
 def calculate_variance(x):
     return sum((f-sum(x)/len(x))**2 for f in x)/len(x)
+
+def seconds_to_str(time):
+    days = int(time // 86400)
+    time %= 86400
+    hours = int(time // 3600)
+    time %= 3600
+    minutes = int(time // 60)
+    seconds = time % 60
+    parts = []
+    if days > 0:
+        parts.append(f"{days} day{'s' if days != 1 else ''}")
+    if hours > 0:
+        parts.append(f"{hours} hour{'s' if hours != 1 else ''}")
+    if minutes > 0:
+        parts.append(f"{minutes} minute{'s' if minutes != 1 else ''}")
+    if seconds > 0 or not parts:
+        parts.append(f"{seconds:.2f} second{'s' if seconds != 1 else ''}")
+    return ", ".join(parts)

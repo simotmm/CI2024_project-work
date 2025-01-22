@@ -1,9 +1,9 @@
 import time
 from tqdm import tqdm
 from init import np, random
-from utils import plot_values
 from fitness import calculate_fitness
 from classes import Problem, Settings, Node
+from utils import plot_values, seconds_to_str
 from tree_functions import print_tree_structure
 from genetic_operators import crossover, mutation
 from population import generate_initial_population, parent_selection
@@ -85,7 +85,7 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
 
     if PLOT: plot_values(f"problem {problem.id}: fitness", fitness_values, tree=best_individual)
     end_time = time.time() - start_time
-    print(f"process complete, elapsed time: {end_time:.2f} seconds")
+    print(f"process complete, elapsed time: {seconds_to_str(end_time)}")
     print(f"best fitness: {best_fitness}, tree depth: {best_individual.depth()}")
     print(f"f{problem.id}(x) = {best_individual}")
     if PRINT_STRUCTURE: print_tree_structure(best_individual)
