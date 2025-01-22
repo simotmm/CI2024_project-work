@@ -7,6 +7,18 @@ Repository for the final project work of Computational Intelligence (01URROV) 20
 - [Requirements](#requirements)
 - [Genetic Algorithm](#genetic-algorithm)
 - [Features](#features)
+- [Steps of the Algorithm](#steps-of-the-algorithm)
+  - [Generation of the population](#generation-of-the-population)
+  - [Fitness Evaluation](#fitness-evaluation)
+  - [Generation of the Offspring and Elite](#generation-of-the-offspring-and-elite)
+  - [Genetic Operators](#genetic-operators)
+  - [Iteration](#iteration)
+  - [End of the process](#end-of-the-process)
+- [Data Structures](#data-structures)
+  - [Node](#node)
+  - [Problem](#problem)
+  - [Settings](#settings)
+
 
 
 ## Introduction
@@ -15,11 +27,13 @@ The goal of this project is to find the best mathematical function that approxim
 The approach used is Symbolic Regression with Genetic Programming Algorithm, the function is encoded using sintax tree.
 
 
+
 ## Requirements
 - Python 3.12.8 +
 - matplotlib
 - numpy
 - tqdm
+
 
 
 ## Genetic Algorithm
@@ -50,18 +64,21 @@ Fitness Metric: based on mean square error. (`fitness`=`-mse`, higher values mea
 ### Generation of the Offspring and Elite
 The `offspring` is the result of **Genetic Operators**, it will be used, as next population, combined with the `elite`, the individuals with the best fitness values, they will be preserved in the next generation.
 
-### Genetic Operators
-#### Mutation or Crossover
+#### Genetic Operators
+##### Mutation or Crossover
 According to the mutation probability in the `Settings` is chosen Mutation or Crossover as genetic operator.
-- Mutation:
-##### Parent Selection and Crossover
+###### Parent Selection and Crossover
 - Parent Selection: two individuals are randomly chosen from the population.
 - *Note*: the first idea for the selection was a double tournament selection with fitness hole (choose n=2 individuals, and select the one with the best fitness with a hight probability) but the trend of the results suggested to remove that computational cost and choose randomly, to increase diversity and add a litte speed up to the process.
 - Crossover: features of the two individuals are combined to create a new one.
-#### Mutation
-According to the mutation probability in the `Settings` is chosen Mutation or Crossover as genetic operator
-- Mutation:
+###### Mutation
+An individual is randomly selected from the population and their features are changed. Types of mutation used are: subtree mutation, hoist_mutation, collapse mutation, expansion mutation and point mutation.
 
+### Iteration
+The process from Fitness Evaluation to Mutation is repeated `max_generation` times.
+
+### End of the process
+At the end of the process the best individual and the history of best fitness values are returned.
 
 
 ## Data Structures
@@ -80,12 +97,36 @@ The `Settings` object is a set of parameters such as population dimension, numbe
 
 
 
-````````````
 
-````````````
+## Repository Structure
+- [s333017.py](./s333017.py): module that contains the best functions fuond by the algorithm for each problem proposed.
+- [/data](./data/): it contains the dataset for the problems proposed, the form of each dataset is: input values `x` and output values `y` (`x` can be multi-dimensional).
+- [log.md](./log.md): report that contains the log of activities during the course.
+- [/src](./src/): root folder of genetic algorithm program. it contain a [runnable example](./src/example.ipynb), the main that runs the algorithm for all the problems and all the modules.
+  - `main.py`: runs the algoritm for all the problems. It accept a command line parameter to run the algorithm for a specific problm. (example: to run the algoritm for the `problem_4.npz`: type in terminal "python main.py 4").
+  - modules: 
+    - `classes.py`: definition of classes for `Node`, `Problem` and `Settings` and global constants.
+    - `operators.py`: definition of operators dictionaries and functions.
+    - `init.py`: initialization of randomness and settings space for all the problems.
+    - `fitness.py`: fitness evaluation functions.
+    - `genetic_algoritm.py`: main algorithm and offspring functions.
+    - `genetic_operators.py`: crossover and mutation functions.
+    - `population.py`: population generation and parent selection functions.
+    - `tree_functions.py`: functions generate full trees and nodes.
+    - `utils.py`: utility functions to get data from dataset,to plot fitness graph, and others.
+  - [/scripts](./src/scripts/): simple .bat scripts to run all the probems in parallel or run a single problem.
 
 
-
-
+## Table of Result
+| Problem | Mean Square Error      |
+|:-------:|:----------------------:|
+| 1       | 7.125940794232773e-34  |
+| 2       | 13987717013674.275     |
+| 3       | 5.306486117932578e-29  |
+| 4       | 0.022938281157499518   |
+| 5       | 7.804262963600968e-19  |
+| 6       | 1.4783925196927175e-05 |
+| 7       | 32.653988150939874     |
+| 8       | 29932.624601487092     |
 
 
