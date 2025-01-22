@@ -71,7 +71,7 @@ def node_as_function(node: Node, x):
 def print_tree_structure(node: Node, depth: int = 0):
     if node is None: return
     spazi = "  " * depth
-    if depth == 0: print(f"\n tree structure: ")
+    if depth == 0: print(f"tree structure: ")
     if callable(node.value): s = node.value.__name__
     else: s = node.value
     print(f" {spazi}(depth {depth}: {s}) ")

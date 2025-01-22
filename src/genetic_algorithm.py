@@ -8,7 +8,8 @@ from tree_functions import print_tree_structure
 from genetic_operators import crossover, mutation
 from population import generate_initial_population, parent_selection
 
-PRINT_STRUCTURE = True
+PLOT = False
+PRINT_STRUCTURE = False
 
 def genetic_programming_algorithm(problem: Problem) -> Node:
     # Dati e setting
@@ -32,7 +33,6 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
 
     print(problem)
     print(settings)
-
     # Popolazione iniziale
     print(f"creation of the inititial population...")
     population = generate_initial_population(population_size, terminals, max_depth)
@@ -68,13 +68,14 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
             # Incrementa la barra di avanzamento
             pbar.update(1)
 
-    plot_values(f"problem {problem.id}: fitness", fitness_values)
+    if PLOT: plot_values(f"problem {problem.id}: fitness", fitness_values)
     end_time = time.time() - start_time
-    print(f"\nprocess complete, elapsed time: {end_time:.2f} seconds")
+    print(f"process complete, elapsed time: {end_time:.2f} seconds")
     print(f"best fitness: {best_fitness}, tree depth: {best_individual.depth()}")
     print(f"f{problem.id}(x) = {best_individual}")
     if PRINT_STRUCTURE: print_tree_structure(best_individual)
-    return best_individual
+    print()
+    return best_individual, fitness_values
 
 
 def generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals):

@@ -2,14 +2,33 @@ NP_PREFIX = "np."
 from operators import OPERATORS, SINGLE_OPERATORS, DOUBLE_OPERATORS
 
 #classi per impostazioni, dati del problema, individio (nodo)
+
+class Problem:
+    def __init__(self,
+                  id: int, 
+                  data, 
+                  settings: "Settings" = None):
+        self.id = id
+        self.data = data
+        self.x = data["x"]
+        self.y = data["y"]
+        self.settings = settings or Settings(id)
+        self.terminals = [f"x[{i}]" for i in range(self.x.shape[0])]
+        self.terminals.append("const")
+
+    def __str__(self):
+        return f"problem {self.id}:\n" + \
+               f"x shape: {self.x.shape}"
+
+
 class Settings:
     def __init__(self, 
                  id: int, #chiave primaria con Problem
-                 population_dim: int, 
-                 max_generations: int, 
-                 max_depth: int, 
-                 mutation_prob: float, 
-                 elitism: float,
+                 population_dim: int = 1000, 
+                 max_generations: int = 20, 
+                 max_depth: int = 8, 
+                 mutation_prob: float = 0.5, 
+                 elitism: float = 0.2,
                  offspring_mult: float = 0.0,
                  ):
         self.id = id
@@ -25,30 +44,14 @@ class Settings:
                f"max generations: {self.max_generations}, " + \
                f"max depth {self.max_depth}, " + \
                f"mutation probability {self.mutation_prob*100}%, " + \
-               f"offspring mult: {self.offspring_mult}, " + \
-               f"elitism: {self.elitism*100}%" \
+               f"elitism: {self.elitism*100}%" #\ + 
+               #f"offspring mult: {self.offspring_mult}, " #non più usato, offspring_mult ora è (1-self.elitism)
 
-
-class Problem:
-    def __init__(self,
-                  id: int, 
-                  data, 
-                  settings: Settings = None):
-        self.id = id
-        self.data = data
-        self.x = data["x"]
-        self.y = data["y"]
-        self.settings = settings
-        self.terminals = [f"x[{i}]" for i in range(self.x.shape[0])]
-        self.terminals.append("const")
-
-    def __str__(self):
-        return f"problem {self.id}:\n" + \
-               f"x shape: {self.x.shape}"
-    
 
 class Node:
-    def __init__(self, value, children = None):
+    def __init__(self, 
+                 value, #int | float | str | callable, 
+                 children: list["Node"] = None):
         self.value = value
         self.children = children or []
     
