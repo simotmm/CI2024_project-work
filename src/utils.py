@@ -72,6 +72,7 @@ def set_problems_settings(problems, setting_list):
 def calculate_variance(x):
     return sum((f-sum(x)/len(x))**2 for f in x)/len(x)
 
+
 def seconds_to_str(time):
     days = int(time // 86400)
     time %= 86400
