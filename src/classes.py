@@ -81,7 +81,7 @@ class Node:
         if self.is_operator():
             f_np_name = f"{NP_PREFIX}{self.value.__name__}"
             inner = ",".join(str(child) for child in self.children)
-            if f_np_name == "np.log":  #non è gestito in fase di creazione dell'albero per non aumentare il costo computazionale (tanti per ogni nodo),
+            if f_np_name == "np.log":  #non è gestito in fase di creazione dell'albero per non aumentare il costo computazionale (tanti if per ogni nodo),
                 return f"{f_np_name}(np.add(np.abs({inner}),{SAFE_CONSTANT}))" # il risultato è lo stesso che si avrebbe con la gestione in creazione perchè le funzioni sono custom definite come queste stringhe
             elif f_np_name == "np.sqrt":
                 return f"{f_np_name}(np.add(np.abs({inner}),{SAFE_CONSTANT}))"
