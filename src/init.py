@@ -26,8 +26,8 @@ SETTINGS_LIST = [
     #PROBLEM 3 SETTINGS
     Settings(
         id=3,
-        population_dim=70_000,
-        max_generations=50,
+        population_dim=1000,
+        max_generations=2000,
         max_depth=6,
         mutation_prob=0.6,
         elitism=0.2
@@ -36,9 +36,9 @@ SETTINGS_LIST = [
     #PROBLEM 4 SETTINGS
     Settings(
         id=4,
-        population_dim=10_000,
+        population_dim=50_000,
         max_generations=120,
-        max_depth=6,
+        max_depth=7,
         mutation_prob=0.6,
         elitism=0.2
     ),

@@ -1,4 +1,5 @@
 @echo off
+cd ..
 start "problem 1" python main.py 1
 start "problem 2" python main.py 2
 start "problem 3" python main.py 3
