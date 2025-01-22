@@ -99,10 +99,10 @@ The `Settings` object is a set of parameters such as population dimension, numbe
 
 
 ## Repository Structure
-- [s333017.py](./s333017.py): module that contains the best functions fuond by the algorithm for each problem proposed.
-- [/data](./data/): it contains the dataset for the problems proposed, the form of each dataset is: input values `x` and output values `y` (`x` can be multi-dimensional).
-- [log.md](./log.md): report that contains the log of activities during the course.
-- [/src](./src/): root folder of genetic algorithm program. it contain a [runnable example](./src/example.ipynb), the main that runs the algorithm for all the problems and all the modules.
+- [s333017.py](../s333017.py): module that contains the best functions fuond by the algorithm for each problem proposed.
+- [/data](../data/): it contains the dataset for the problems proposed, the form of each dataset is: input values `x` and output values `y` (`x` can be multi-dimensional).
+- [report.md](../report.md): report that contains the log of activities during the course.
+- [/src](./): root folder of genetic algorithm program. it contain a [runnable example](./example.ipynb), the main that runs the algorithm for all the problems and all the modules.
   - `main.py`: runs the algoritm for all the problems. It accept a command line parameter to run the algorithm for a specific problm. (example: to run the algoritm for the `problem_4.npz`: type in terminal "python main.py 4").
   - modules: 
     - `classes.py`: definition of classes for `Node`, `Problem` and `Settings` and global constants.
@@ -114,7 +114,7 @@ The `Settings` object is a set of parameters such as population dimension, numbe
     - `population.py`: population generation and parent selection functions.
     - `tree_functions.py`: functions generate full trees and nodes.
     - `utils.py`: utility functions to get data from dataset,to plot fitness graph, and others.
-  - [/scripts](./src/scripts/): simple .bat scripts to run all the probems in parallel or run a single problem.
+  - [/scripts](./scripts/): simple .bat scripts to run all the probems in parallel or run a single problem.
 
 
 ## Table of Result
