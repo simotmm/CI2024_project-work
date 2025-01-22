@@ -1,6 +1,8 @@
 # Computational Intelligence - Final Project Work: Symbolic Regression with Genetic Programming Algorithm
 Repository for the final project work of Computational Intelligence (01URROV) 2024-2025 course at Politecnico di Torino.
 
+Simone Tumminelli (s333017)
+
 
 ## Contents
 - [Introduction](#introduction)
@@ -94,8 +96,6 @@ The `Node` object represents an individual of the popolation. It is, in fact, a 
 The `Problem` object represents the problem to solve, it contains the data from the corresponding `.npz` file and an object `Settings`.
 ### Settings
 The `Settings` object is a set of parameters such as population dimension, number of generation, maximum tree depth, probabiliy of mutation and percentage of elitism.
-
-
 
 
 ## Repository Structure
