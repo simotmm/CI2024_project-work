@@ -20,11 +20,12 @@ def get_problem(i: int):
     return problems[i]
 
 
-def plot_values(s, values, normalized=False): 
+def plot_values(s, values, normalized=False, tree=None):
     if len(values) == 0:
         return
-    elif len(values) == 1: #per plottare sempre almeno una linea
+    elif len(values) == 1:  # Per plottare sempre almeno una linea
         values.append(values[0])
+
     if normalized: 
         # Normalizzazione dei fitness values in modo che siano compresi tra 0 e 1
         max_value = max(values)
@@ -34,11 +35,29 @@ def plot_values(s, values, normalized=False):
             normalized_values = values  # Se tutti i fitness sono zero, non cambiare i valori
     else:
         normalized_values = values
+
     # Plottare i valori di fitness (normalizzati o meno)
     plt.plot(normalized_values)
-    plt.title(f'{"Normalized " if normalized else ""}{s} values over generations')
-    plt.xlabel('Generations')
-    plt.ylabel(f'{"Normalized " if normalized else ""}{s}')
+    plt.title(f'{"normalized " if normalized else ""}{s} values over generations')
+    plt.xlabel('generations')
+    plt.ylabel(f'{"normalized " if normalized else ""}{s}')
+
+    # Aggiungere informazioni extra sotto il riquadro del grafico
+    text_info = f"\nbest fitness value: {values[-1]}"
+    if tree is not None:
+        text_info += f"\nf(x) = {tree}"
+
+    # Posizionare il testo sotto il riquadro del grafico
+    plt.gca().text(
+        0.5, -0.2,  # Posizione relativa nel grafico (x: centro, y: sotto il grafico)
+        text_info,
+        ha='center',  # Allineamento orizzontale
+        va='center',  # Allineamento verticale
+        transform=plt.gca().transAxes,  # Coordinate relative al sistema di assi
+        fontsize=10
+    )
+
+    plt.tight_layout()  # Adatta i margini per evitare sovrapposizioni
     plt.show()
 
 

@@ -83,7 +83,7 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
 
             pbar.update(1) #bar update
 
-    if PLOT: plot_values(f"problem {problem.id}: fitness", fitness_values)
+    if PLOT: plot_values(f"problem {problem.id}: fitness", fitness_values, tree=best_individual)
     end_time = time.time() - start_time
     print(f"process complete, elapsed time: {end_time:.2f} seconds")
     print(f"best fitness: {best_fitness}, tree depth: {best_individual.depth()}")
