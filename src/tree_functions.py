@@ -1,6 +1,6 @@
 from init import random, np
 from classes import Node
-from operators import OPERATORS
+from operators import OPERATORS, SAFE_CONSTANT
 
 
 def create_random_tree(depth: int, terminals: int, prob_to_stop: int = 0.5) -> Node:

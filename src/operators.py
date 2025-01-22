@@ -1,16 +1,17 @@
 from init import np
 
 TERMINALS = ["x", "const"]
+SAFE_CONSTANT = 1e-40
 
 def add(x,y):      return np.add(x,y)
 def subtract(x,y): return np.subtract(x,y)
 def multiply(x,y): return np.multiply(x,y)
-def divide(x,y):      return np.divide(x,y+1e-40)
-def divmod(x,y):   return np.divmod(x,y+1e-40)
-def floor_divide(x,y): return np.floor_divide(x,y+1e-40)
-def pow(x,y):      return np.pow(x+1e-40,y)
-def log(x):        return np.log(abs(x+1e-40))  
-def sqrt(x):       return np.sqrt(abs(x+1e-40)) 
+def divide(x,y):   return np.divide(x,y+SAFE_CONSTANT) # trattete opportunamente in fase di conversione a stringa
+def divmod(x,y):   return np.divmod(x,y+SAFE_CONSTANT)
+def floor_divide(x,y): return np.floor_divide(x,y+SAFE_CONSTANT)
+def pow(x,y):      return np.pow(x+SAFE_CONSTANT,y) 
+def log(x):        return np.log(np.abs(x+SAFE_CONSTANT))
+def sqrt(x):       return np.sqrt(np.abs(x+SAFE_CONSTANT)) 
 def sin(x):        return np.sin(x)
 def cos(x):        return np.cos(x)
 def tan(x):        return np.tan(x)

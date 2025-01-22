@@ -1,5 +1,6 @@
-from operators import OPERATORS, SINGLE_OPERATORS, DOUBLE_OPERATORS
+from operators import OPERATORS, SINGLE_OPERATORS, DOUBLE_OPERATORS, SAFE_CONSTANT
 NP_PREFIX = "np."
+ABS_PREFIX = f"{NP_PREFIX}abs"
 
 #classi per impostazioni, dati del problema, individio (nodo)
 class Problem:
@@ -77,6 +78,21 @@ class Node:
         return len(self.children)
 
     def __str__(self):
+        if self.is_operator():
+            f_np_name = f"{NP_PREFIX}{self.value.__name__}"
+            inner = ",".join(str(child) for child in self.children)
+            if f_np_name == "np.log":  #non è gestito in fase di creazione dell'albero per non aumentare il costo computazionale (tanti per ogni nodo),
+                return f"{f_np_name}(np.add(np.abs({inner}),{SAFE_CONSTANT}))" # il risultato è lo stesso che si avrebbe con la gestione in creazione perchè le funzioni sono custom definite come queste stringhe
+            elif f_np_name == "np.sqrt":
+                return f"{f_np_name}(np.add(np.abs({inner}),{SAFE_CONSTANT}))"
+            elif f_np_name == "np.divide":
+                x, y = self.children[0], self.children[1]
+                return f"{f_np_name}({str(x)},np.add({str(y)},{SAFE_CONSTANT}))"
+            else:
+                return f"{f_np_name}({inner})"
+        return str(self.value)
+
+    def __str__old(self):
         if self.is_operator():
             f_np_name = f"{NP_PREFIX}{self.value.__name__}"
             inner = ",".join(str(child) for child in self.children)
