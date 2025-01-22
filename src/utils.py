@@ -57,7 +57,7 @@ def plot_values(s, values, normalized=False, tree=None):
         fontsize=10
     )
 
-    plt.tight_layout()  # Adatta i margini per evitare sovrapposizioni
+    #plt.tight_layout()  # Adatta i margini per evitare sovrapposizioni
     plt.show()
 
 
