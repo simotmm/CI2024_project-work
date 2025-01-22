@@ -777,7 +777,7 @@ Found a solution in 143 steps; visited 6,654 states
 ## Lab 3 Review 1
 date: Dec 1, 2024
 
-[Lab 3 Review 1 Link]()
+[Lab 3 Review 1 Link](https://github.com/rosfi12/CI2024_lab3/issues/2)
 ### Lab 3 Review 1 content
 #### Overview
 The proposed code presents a good solution with different approaches: BFS, A* and Greedy algorithms.
