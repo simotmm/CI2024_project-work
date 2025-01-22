@@ -2,6 +2,33 @@
 
 Simone Tumminelli (s333017)
 
+Academic Year 2024-2025, first semester.
+
+# Contents
+- [Lab 0](#lab-0)
+  - [Lab 0 content: Joke about the first lecture](#lab-0-content-joke-about-the-first-lecture)
+- [Lab 0 Reviews](#lab-0-reviews)
+  - [Lab 0 Review 1](#lab-0-review-1)
+  - [Lab 0 Review 2](#lab-0-review-2)
+- [Lab 1](#lab-1)
+  - [Lab 1 content and code: Set Cover Problem](#lab-1-content-and-code-set-cover-problem)
+- [Lab 1 Reviews](#lab-1-reviews)
+  - [Lab 1 Review 1](#lab-1-review-1)
+  - [Lab 1 Review 2](#lab-1-review-2)
+- [Lab 2](#lab-2)
+  - [Lab 2 content (md file): Travelling Salesman Problem](#lab-2-content-md-file-travelling-salesman-problem)
+  - [Lab 2 code](#lab-2-code)
+- [Lab 2 Reviews](#lab-2-reviews)
+  - [Lab 2 Review 1](#lab-2-review-1)
+  - [Lab 2 Review 2](#lab-2-review-2)
+- [Lab 3](#lab-3)
+  - [Lab 3 content (md file): n^2-1 Puzzle](#lab-3-content-md-file-n2-1-puzzle)
+  - [Lab 3 code](#lab-3-code)
+- [Lab 3 Reviews](#lab-3-reviews)
+  - [Lab 3 Review 1](#lab-3-review-1)
+  - [Lab 3 Review 2](#lab-3-review-2)
+
+
 # Lab 0 
 date: Sep 23, 2024
 
@@ -744,4 +771,50 @@ final = search(
 )
 ```
 Found a solution in 143 steps; visited 6,654 states
+
+
+# Lab 3 Reviews 
+## Lab 3 Review 1
+date: Dec 1, 2024
+
+[Lab 3 Review 1 Link]()
+### Lab 3 Review 1 content
+#### Overview
+The proposed code presents a good solution with different approaches: BFS, A* and Greedy algorithms.
+
+#### Code and documentation 
+The code is well organized and the comments are clear and helpful in order to understand the algorithms. The code ran successfully with no bugs and the results output is clear.
+
+The `readme` file is empty but I don't think this is a problem because the in the code the comments and the output are clear.
+
+#### Possible improvements
+- I suggest to use a "requirements.txt" file to install all the dependencies at once using "pip install -r requirements.txt".
+- The use of the `is_solvable` function can be removed because the initial state of the puzzle is generated from the solution.
+- In the `readme` file it would be good to have a brief description for the problem and the used approaches, as well as a table with the results.
+
+##### Final comment
+Very good job!👍
+
+
+
+## Lab 3 Review 2
+date: Dec 1, 2024
+
+[Lab 3 Review 2 Link](https://github.com/UtkuKepir/CI2024_lab3/issues/2)
+### Lab 3 Review 2 content
+#### Overview
+The proposed code presents a very good solution with a lot of different approaches such as A*, DFS and BFS, each one with different strategies as well.
+
+#### Code and documentation 
+The code is well organized, the comment are not a lot but I think they are sufficient to understand the goal of each section. The code ran successfully with no bugs and the results output is very clear, well done.
+
+The `readme` file is simple and well structured, thank you for compiling all the results in the table, it helps a lot to make comparisons between the different strategies.
+
+#### Possible improvements
+- On the side of the algorithms I have nothing to suggest, I think you explored the strategies to solve the problem in a more than excellent way, undoubtedly more than I did.
+- I suggest to use a "requirements.txt" file to install all the dependencies at once using "pip install -r requirements.txt".
+- In the `readme` file there are three image links that don't work, maybe you forgot to upload the png files in the repo.
+
+##### Final comment
+Very good job! Kudos👍
 
