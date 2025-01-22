@@ -19,7 +19,6 @@ if len(sys.argv) == 2:
         elif id == 7: f = f7
         elif id == 8: f = f8
 
-
 def test_formulas():
     if f and PROBLEM_ID:
         problem = get_problem(PROBLEM_ID)
