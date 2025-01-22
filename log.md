@@ -150,7 +150,7 @@ ic| first_solution_fitness: (np.False_, np.float64(-352204.3540240815))
 ic| solution_fitness: (np.True_, np.float64(-3320313.7959436844))
 (np.True_, np.float64(-3320313.7959436844))
 
-### Results
+##### Results
 | Instance | Universe Size | Num Sets | Density | Probability (*) | First Fitness                                | Final Fitness                               | Execution Time |
 | -------- | ------------- | -------- | ---     | --------------- | -------------------------------------------- | ------------------------------------------- | -------------- | 
 | 1        | 100           | 10       | 0.2     | 0.895           | (np.True_, np.float64(-276.28183998918325))  | (np.True_, np.float64(-276.28183998918325)) | 0.001s         |
