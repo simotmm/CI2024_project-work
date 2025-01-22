@@ -8,7 +8,6 @@ from tree_functions import create_full_random_tree, create_random_tree
 def generate_initial_population(population_dim: int, terminals: list[str], tree_depth: int, full_tree_prob: int = 0.001) -> list[Node]:
     population = []
     tree_depth = 2 #impostare a 2 se il fitness cresce lentamente
-    print("generating population...")
     
     while len(population) < population_dim:
         if random.random() <= full_tree_prob:

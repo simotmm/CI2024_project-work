@@ -2,12 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from classes import Problem, Settings
 
+
 PROBLEM_PATH = "../data/problem_"
 PROBLEM_EXTENTION = ".npz"
 
-def sol_to_string(sol):
-    return "f(x) = " + str(sol) + "\n"\
-            "fitness value: " + str(sol.fitness) + "\n"\
 
 def get_problems():
     problems = []
@@ -16,9 +14,11 @@ def get_problems():
         problems.append(Problem(i, problem))
     return problems
 
+
 def get_problem(i: int):
     problems = get_problems()
     return problems[i]
+
 
 def plot_values(s, values, normalized=False): 
     if len(values) == 0:
@@ -42,10 +42,11 @@ def plot_values(s, values, normalized=False):
     plt.show()
 
 
-def calculate_variance(x):
-    return sum((f-sum(x)/len(x))**2 for f in x)/len(x)
-
 def set_problems_settings(problems: list[Problem], settings: list[Settings]) -> list[Problem]:
     for problem in problems:
         problem.settings = settings[problem.id]
     return problems
+
+
+def calculate_variance(x):
+    return sum((f-sum(x)/len(x))**2 for f in x)/len(x)

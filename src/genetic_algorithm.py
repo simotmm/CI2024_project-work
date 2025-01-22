@@ -8,8 +8,10 @@ from tree_functions import print_tree_structure
 from genetic_operators import crossover, mutation
 from population import generate_initial_population, parent_selection
 
+
 PLOT = False
 PRINT_STRUCTURE = False
+
 
 def genetic_programming_algorithm(problem: Problem) -> Node:
     # Dati e setting

@@ -21,11 +21,11 @@ def crossover(n1: Node, n2: Node, depth: int, prob=0.5) -> Node:
 def mutation(tree: Node, max_depth: int, terminals: list[str]):
 
     MUTATION_TYPES = {
-        "subtree_mutation": 0.6,  
-        "point_mutation": 0.2,
-        "expansion_mutation": 0.05, 
+        "subtree_mutation": 0.575,  
+        "point_mutation": 0.175,
+        "expansion_mutation": 0.05,  
         "hoist_mutation": 0.1,    
-        "collapse_mutation" : 0.1
+        "collapse_mutation": 0.1
     }
 
     def expansion(tree: Node, max_depth: int, terminals: list[str]) -> Node:

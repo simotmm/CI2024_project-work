@@ -1,8 +1,7 @@
-NP_PREFIX = "np."
 from operators import OPERATORS, SINGLE_OPERATORS, DOUBLE_OPERATORS
+NP_PREFIX = "np."
 
 #classi per impostazioni, dati del problema, individio (nodo)
-
 class Problem:
     def __init__(self,
                   id: int, 

@@ -2,6 +2,7 @@ from init import random, np
 from classes import Node
 from operators import OPERATORS
 
+
 def create_random_tree(depth: int, terminals: int, prob_to_stop: int = 0.5) -> Node:
     if depth <= 0 or random.random() <= prob_to_stop: 
         return generate_random_terminal_node(terminals)
