@@ -4,6 +4,7 @@ from classes import Node
 from fitness import calculate_fitness
 from tree_functions import create_full_random_tree, create_random_tree
 
+PRINT_AVERAGE_DEPTH = True
 
 def generate_initial_population(population_dim: int, terminals: list[str], tree_depth: int, full_tree_prob: int = 0.001) -> list[Node]:
     population = []
@@ -15,7 +16,8 @@ def generate_initial_population(population_dim: int, terminals: list[str], tree_
         else:
             population.append(create_random_tree(tree_depth, terminals))
 
-    print(f"average depth in {len(list(population))} trees: {average_tree_depth(list(population))}")
+    if PRINT_AVERAGE_DEPTH:
+        print(f"population generater, average depth in {len(list(population))} trees: {average_tree_depth(list(population))}")
     return population
 
 

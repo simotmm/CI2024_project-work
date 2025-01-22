@@ -16,7 +16,7 @@ SETTINGS_LIST = [
     #PROBLEM 2 SETTINGS
     Settings(
         id=2,
-        population_dim=1000,
+        population_dim=70_000,
         max_generations=600,
         max_depth=6,
         mutation_prob=0.6,
@@ -56,19 +56,19 @@ SETTINGS_LIST = [
     #PROBLEM 6 SETTINGS
     Settings(
         id=6,
-        population_dim=1000,
-        max_generations=600,
-        max_depth=6,
-        mutation_prob=0.6,
+        population_dim=10_000,
+        max_generations=1000,
+        max_depth=8,
+        mutation_prob=0.5,
         elitism=0.2
     ),
 
     #PROBLEM 7 SETTINGS
     Settings(
         id=7,
-        population_dim=1000,
-        max_generations=600,
-        max_depth=6,
+        population_dim=10_000,
+        max_generations=1000,
+        max_depth=7,
         mutation_prob=0.6,
         elitism=0.2
     ),
@@ -76,9 +76,9 @@ SETTINGS_LIST = [
     #PROBLEM 8 SETTINGS
     Settings(
         id=8,
-        population_dim=1000,
-        max_generations=600,
-        max_depth=6,
+        population_dim=10_000,
+        max_generations=200,
+        max_depth=8,
         mutation_prob=0.6,
         elitism=0.2
     ),

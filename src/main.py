@@ -1,13 +1,9 @@
 import warnings #per evitare warning durante la generazione degli individui
 warnings.filterwarnings('ignore', category=RuntimeWarning)
-from init import np, SETTINGS_LIST
+from init import SETTINGS_LIST
 from utils import get_problems, get_problem, plot_values, set_problems_settings
 from genetic_algorithm import genetic_programming_algorithm
-from operators import OPERATORS
-from tree_functions import node_as_function
-from classes import Settings
 import sys
-
 
 PLOT = True
 PROBLEM_ID = None       

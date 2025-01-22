@@ -48,7 +48,6 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
     with tqdm(total=num_generations, desc="genetic_algorithm", unit="gen") as pbar:
         for generation in range(num_generations):
 
-
             #calcolo fitness 
             this_gen_fitness_values = get_fitness_values(population, x, y)
             i = np.argmax(this_gen_fitness_values)
@@ -80,7 +79,7 @@ def genetic_programming_algorithm(problem: Problem) -> Node:
             #offspring
             #offspring = generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals, x, y)
             offspring = generate_offspring(population, offspring_size, mutation_prob, max_depth, terminals)
-            population = elite + offspring
+            population = elite + offspring  #popolazione per la prossima gen
 
             pbar.update(1) #bar update
 

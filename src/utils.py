@@ -1,6 +1,6 @@
-import numpy as np
+from init import np
 import matplotlib.pyplot as plt
-from classes import Problem, Settings
+from classes import Problem
 
 
 PROBLEM_PATH = "../data/problem_"
@@ -42,7 +42,7 @@ def plot_values(s, values, normalized=False):
     plt.show()
 
 
-def set_problems_settings(problems: list[Problem], setting_list: list[Settings]) -> list[Problem]:
+def set_problems_settings(problems, setting_list):
     settings_dict = {setting.id: setting for setting in setting_list}
     for problem in problems:
         if problem.id in settings_dict:
