@@ -29,7 +29,7 @@ def main():
     if PLOT:
         print("\nplot fitness values")
         for solution, (problem_id, fitness_values) in zip(solutions, all_fitnesses):
-            print(f"plot: problem {problem_id}\n(close the plot window to continue)\n")
+            print(f"plot: problem {problem_id}\n(close the graph window to continue)\n")
             plot_values(f"problem {problem_id}: fitness", fitness_values, tree=solution)
     input("press enter to exit") #per evitare che su windows la finestra si chiuda se il chiamante è all_problems.bat
 main()
