@@ -45,7 +45,7 @@ def plot_values(s, values, normalized=False):
 def calculate_variance(x):
     return sum((f-sum(x)/len(x))**2 for f in x)/len(x)
 
-def set_problems_settings(problems: list[Problem], settings: list[Settings]):
+def set_problems_settings(problems: list[Problem], settings: list[Settings]) -> list[Problem]:
     for problem in problems:
         problem.settings = settings[problem.id]
     return problems

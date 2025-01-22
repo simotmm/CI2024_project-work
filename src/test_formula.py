@@ -6,9 +6,9 @@ import time
 from tree_functions import get_full_random_tree, get_random_tree
 from fitness import calculate_fitness
 import numpy as np
-from crossover import crossover
+from genetic_operators import crossover
 import random
-from genetic_operators import mutate_node
+from genetic_operators import mutation
 from population import generate_initial_population
 from classes import Settings
 from genetic_algorithm import genetic_programming_algorithm

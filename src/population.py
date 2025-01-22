@@ -24,8 +24,8 @@ def generate_initial_population(population_dim: int, terminals: list[str], tree_
 def parent_selection(population: list[Node], x: np.ndarray, y: np.ndarray) -> Node:
     
     def tournament_1v1(population, hole_prob=0.15):
-        i1 = population[np.random.randint(len(population))]
-        i2 = population[np.random.randint(len(population))]
+        i1 = population[random.randint(len(population))]
+        i2 = population[random.randint(len(population))]
         if calculate_fitness(i1, x, y) > calculate_fitness(i2, x, y): 
             best = i1
             other = i2
