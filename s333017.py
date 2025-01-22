@@ -19,10 +19,9 @@ def f3(x: np.ndarray) -> np.ndarray:
 
 
 #problem 4:
-#mean square error: 0.022938281157499518 
+#mean square error: 2.21376097012696e-05
 def f4(x: np.ndarray) -> np.ndarray:
-    return np.add(np.divide(np.add(np.cos(x[1]),x[0]),np.add(-7.4,1e-40)),np.add(np.divide(np.multiply(np.add(np.cos(x[1]),np.log(np.add(np.abs(np.subtract(-9,-7.4)),1e-40))),np.sqrt(np.add(np.abs(-7.4),1e-40))),np.add(-7.4,1e-40)),np.multiply(np.sqrt(np.add(np.abs(-7.4),1e-40)),np.multiply(np.add(np.cos(x[1]),np.log(np.add(np.abs(np.subtract(-9,-7.4)),1e-40))),np.sqrt(np.add(np.abs(-7.4),1e-40))))))
-
+    return np.add(np.add(np.divide(np.divide(x[0],np.add(8,1e-40)),np.add(np.sin(np.abs(-5)),1e-40)),x[0]),np.add(np.multiply(x[0],np.sin(np.abs(-5))),np.add(np.add(np.abs(-2.7),np.multiply(np.cos(x[1]),np.abs(7))),np.sin(np.cos(np.cos(-2.7))))))
 
 #problem 5:
 #mean square error: 7.804262963600968e-19 
