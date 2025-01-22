@@ -42,9 +42,11 @@ def plot_values(s, values, normalized=False):
     plt.show()
 
 
-def set_problems_settings(problems: list[Problem], settings: list[Settings]) -> list[Problem]:
+def set_problems_settings(problems: list[Problem], setting_list: list[Settings]) -> list[Problem]:
+    settings_dict = {setting.id: setting for setting in setting_list}
     for problem in problems:
-        problem.settings = settings[problem.id]
+        if problem.id in settings_dict:
+            problem.settings = settings_dict[problem.id]
     return problems
 
 
