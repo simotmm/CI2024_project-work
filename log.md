@@ -176,7 +176,7 @@ This algorithm gives a valid solution but it is very slow: starting from the ins
 
 
 
-# Lab 1 Review
+# Lab 1 Reviews
 ## Lab 1 Review 1
 date:  Oct 19, 2024
 
@@ -203,7 +203,7 @@ Good job! 👍
 
 
 
-# Lab 1 Reviews
+
 ## Lab 1 Review 2
 date:  Oct 19, 2024
 
@@ -231,15 +231,15 @@ Good job👍
 
 # Lab 2
 Oct 29, 2024 - Nov 2, 2024
-[Lab 1 Link](https://github.com/simotmm/CI2024_lab2)
+[Lab 2 Link](https://github.com/simotmm/CI2024_lab2)
 
-## Lab 2 content: TSP
+## Lab 2 content: Travelling Salesman Problem
 ### Computational Intelligence - Lab 2: TSP
 The goal of this lab is to solve the Traveling Salesman Problem ("TSP", https://en.wikipedia.org/wiki/Travelling_salesman_problem) with the given instances (in the "cities" directory) 
 using a fast but approximate algorithm and a slower yet more accurate one.
 
-### Results
-#### Greedy Algorithm
+#### Results
+##### Greedy Algorithm
 | Instance | Steps | Cost (km)  |
 | :------- | :---: | ---------: |
 | Italy    | 46    |  4,436.03  |
@@ -248,7 +248,7 @@ using a fast but approximate algorithm and a slower yet more accurate one.
 | US       | 326   | 48,050.03  |
 | Vanuatu  | 8     |  1,475.53  |
 
-#### Evolutionary Algorithm
+##### Evolutionary Algorithm
 | Instance | Steps | Cost (km)  |
 | :------- | :---: | ---------: |
 | Italy    | 46    |   4,721.66 |
@@ -334,14 +334,23 @@ for instance in INSTANCES:
     i += 1 
 ```
 INFO:root: instance 1 (Italy):
+
 INFO:root: result: Found a path of 46 steps, total length 4436.03km
+
 INFO:root: instance 2 (China):
+
 INFO:root: result: Found a path of 726 steps, total length 63962.92km
+
 INFO:root: instance 3 (Russia):
+
 INFO:root: result: Found a path of 167 steps, total length 42334.16km
+
 INFO:root: instance 4 (US):
+
 INFO:root: result: Found a path of 326 steps, total length 48050.03km
+
 INFO:root: instance 5 (Vanuatu):
+
 INFO:root: result: Found a path of 8 steps, total length 1475.53km
 #### Evolutionary Algorithm
 ```
@@ -440,22 +449,41 @@ for instance in INSTANCES:
     i += 1 
 ```
 INFO:root: instance 1 (Italy):
+
 INFO:root: result: Found a path of 46 steps, total length 4436.03km
+
 INFO:root: instance 2 (China):
+
 INFO:root: result: Found a path of 726 steps, total length 63962.92km
+
 INFO:root: instance 3 (Russia):
+
 INFO:root: result: Found a path of 167 steps, total length 42334.16km
+
 INFO:root: instance 4 (US):
+
 INFO:root: result: Found a path of 326 steps, total length 48050.03km
+
 INFO:root: instance 5 (Vanuatu):
+
 INFO:root: result: Found a path of 8 steps, total length 1475.53km
+
 INFO:root: instance 1 (Italy):
+
 INFO:root: result: Found a path of 46 steps, total length 4721.66km
+
 INFO:root: instance 2 (China):
+
 INFO:root: result: Found a path of 726 steps, total length 367689.23km
+
 INFO:root: instance 3 (Russia):
+
 INFO:root: result: Found a path of 167 steps, total length 65540.95km
+
 INFO:root: instance 4 (US):
+
 INFO:root: result: Found a path of 326 steps, total length 142000.39km
+
 INFO:root: instance 5 (Vanuatu):
+
 INFO:root: result: Found a path of 8 steps, total length 1345.54km
