@@ -17,7 +17,7 @@ def generate_initial_population(population_dim: int, terminals: list[str], tree_
             population.append(create_random_tree(tree_depth, terminals))
 
     if PRINT_AVERAGE_DEPTH:
-        print(f"population generater, average depth in {len(list(population))} trees: {average_tree_depth(list(population))}")
+        print(f"population generated, average depth in {len(list(population))} trees: {average_tree_depth(list(population))}")
     return population
 
 
